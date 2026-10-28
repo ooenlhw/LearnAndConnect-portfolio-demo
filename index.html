@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A static portfolio preview of Learn & Connect, a university student library, quiz, and group chat app.">
+  <meta name="theme-color" content="#293e69">
+  <title>Learn &amp; Connect — Portfolio Demo</title>
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#demo">Skip to demo</a>
+  <div class="page-shell">
+    <aside class="intro-panel">
+      <a class="wordmark" href="#demo"><span class="wordmark-icon" aria-hidden="true">✦</span> Learn<span>&amp;</span>Connect</a>
+      <p class="eyebrow">UNIVERSITY PROJECT / INTERACTIVE PREVIEW</p>
+      <h1>One space to <em>learn</em> and connect.</h1>
+      <p class="intro-copy">Explore an illustrative preview of the IT department library, topic quizzes, and student group chat described in the original project.</p>
+      <div class="feature-list"><span><b>01</b> Browse the library</span><span><b>02</b> Try a quiz</span><span><b>03</b> Open the group chat</span></div>
+      <p class="demo-disclaimer"><strong>About this demo</strong><br>The repository contains partial app screens. This standalone preview uses sample content and local interactions; sign-in, uploads, shared messages, and score syncing are unavailable.</p>
+    </aside>
+    <main class="demo-area" id="demo">
+      <div class="phone" aria-label="Learn and Connect mobile app preview">
+        <div class="phone-status" aria-hidden="true"><span>9:41</span><span>●●● ▰</span></div>
+        <header class="app-header"><div><p class="app-kicker">IT STUDENT SPACE</p><h2 id="screen-title">Library</h2></div><span class="avatar" aria-hidden="true">W</span></header>
+        <div class="app-content">
+          <section class="screen active" id="library-screen" aria-label="Library">
+            <div class="welcome-card"><div><span>YOUR LEARNING HUB</span><strong>Keep your<br>curiosity growing.</strong><p>Find a topic and start exploring.</p></div><span class="welcome-symbol" aria-hidden="true">✦</span></div>
+            <label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">Search library topics</span><input id="library-search" type="search" placeholder="Search the library"></label>
+            <div class="screen-heading"><h3>Explore topics</h3><span id="topic-count" aria-live="polite"></span></div>
+            <div class="topic-grid" id="topic-grid">
+              <button type="button" class="topic-card topic-card--blue" data-topic="HTML &amp; CSS" data-description="Learn the building blocks of web pages and responsive layouts."><span aria-hidden="true">&lt;/&gt;</span><strong>HTML &amp; CSS</strong><small>Web foundations</small></button>
+              <button type="button" class="topic-card topic-card--peach" data-topic="JavaScript" data-description="Explore the language used to bring web interfaces to life."><span aria-hidden="true">{ }</span><strong>JavaScript</strong><small>Programming</small></button>
+              <button type="button" class="topic-card topic-card--lavender" data-topic="Angular" data-description="Discover components, templates, and application structure."><span aria-hidden="true">◇</span><strong>Angular</strong><small>Frameworks</small></button>
+              <button type="button" class="topic-card topic-card--mint" data-topic="Python" data-description="Practice readable code and problem solving with Python."><span aria-hidden="true">⌘</span><strong>Python</strong><small>Programming</small></button>
+              <button type="button" class="topic-card topic-card--sand" data-topic="Cloud Computing" data-description="Get an introduction to cloud services and deployment concepts."><span aria-hidden="true">☁</span><strong>Cloud Computing</strong><small>Infrastructure</small></button>
+              <button type="button" class="topic-card topic-card--pink" data-topic="Artificial Intelligence" data-description="Explore introductory ideas behind intelligent systems."><span aria-hidden="true">✳</span><strong>Artificial Intelligence</strong><small>Emerging tech</small></button>
+            </div>
+            <p class="empty-state" id="topic-empty" hidden>No topics match your search.</p>
+          </section>
+          <section class="screen" id="quiz-screen" aria-label="Quizzes" hidden>
+            <div class="quiz-intro"><span class="eyebrow">PRACTICE MODE</span><h3>Make learning a little more fun.</h3><p>Choose an answer and see how you did. Scores stay in this browser session.</p></div>
+            <div class="quiz-card"><div class="quiz-progress"><span>QUESTION <span id="question-number">1</span> / 3</span><span id="score-label">0 POINTS</span></div><div class="progress-track"><span id="progress-fill"></span></div><h3 id="question-text"></h3><div class="answer-list" id="answer-list"></div><p class="quiz-feedback" id="quiz-feedback" aria-live="polite"></p><button class="next-button" id="next-question" type="button" hidden>Next question ↗</button></div>
+          </section>
+          <section class="screen" id="chat-screen" aria-label="Group chat" hidden>
+            <div class="chat-intro"><span class="chat-group-icon" aria-hidden="true">✦</span><div><h3>IT Student Group</h3><p>Illustrative conversation · local only</p></div></div>
+            <div class="chat-messages" id="chat-messages" aria-live="polite"><div class="message message-other"><span>Alex · 10:24</span><p>Anyone have a good way to start learning Angular?</p></div><div class="message message-other"><span>May · 10:26</span><p>Try building a small project after the basics. It helped me!</p></div><div class="message message-me"><span>You · 10:28</span><p>That sounds like a good plan ✨</p></div></div>
+            <form class="chat-compose" id="chat-form"><label class="sr-only" for="chat-input">Write a demo message</label><input id="chat-input" type="text" maxlength="180" placeholder="Write a message..." required><button type="submit" aria-label="Send demo message">➤</button></form><p class="chat-note">Messages are only shown locally and are not sent to anyone.</p>
+          </section>
+        </div>
+        <nav class="tab-bar" aria-label="Demo sections"><button type="button" class="tab active" data-screen="library" aria-current="page"><span aria-hidden="true">▤</span>Library</button><button type="button" class="tab" data-screen="quiz"><span aria-hidden="true">◉</span>Quiz</button><button type="button" class="tab" data-screen="chat"><span aria-hidden="true">◌</span>Connect</button></nav>
+      </div>
+    </main>
+  </div>
+  <dialog id="topic-dialog" aria-labelledby="topic-title"><button class="dialog-close" id="close-topic" type="button" aria-label="Close topic">×</button><p class="eyebrow">LIBRARY TOPIC</p><h2 id="topic-title"></h2><p id="topic-description"></p><p class="dialog-note">This preview shows the topic area; the original book content is not bundled with the demo.</p></dialog>
+</body>
+</html>
